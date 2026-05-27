@@ -113,7 +113,7 @@
     .hero-shell {
       min-height: 660px;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.16fr 0.84fr;
       gap: 28px;
       align-items: stretch;
       border-radius: 38px;
@@ -173,8 +173,8 @@
     h1 {
       max-width: 780px;
       margin: 48px 0 24px;
-      font-size: clamp(3.3rem, 8vw, 7.4rem);
-      line-height: 0.89;
+      font-size: clamp(3.2rem, 7.2vw, 6.5rem);
+      line-height: 0.92;
       letter-spacing: -0.095em;
     }
 
@@ -231,11 +231,13 @@
       z-index: 1;
       display: grid;
       align-content: center;
+      justify-items: end;
       gap: 16px;
       padding: 20px;
     }
 
     .pipeline-panel {
+      width: min(100%, 410px);
       border: 1px solid var(--line-dark);
       border-radius: 26px;
       background:
@@ -286,9 +288,10 @@
 
     .pipeline-title b {
       color: #ffffff;
-      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      font-size: clamp(1.3rem, 1.55vw, 1.48rem);
       line-height: 1.05;
       letter-spacing: -0.055em;
+      white-space: nowrap;
     }
 
     .pipeline-title span {
@@ -379,35 +382,37 @@
     }
 
     .ops-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
 
     .ops-tile {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      min-width: 0;
+      min-height: 56px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 999px;
-      padding: 8px 10px;
+      border-radius: 14px;
+      padding: 9px 11px;
       background: rgba(255, 255, 255, 0.055);
     }
 
     .ops-tile b {
       color: #ffffff;
       font-size: 0.78rem;
-      line-height: 1;
+      line-height: 1.1;
     }
 
     .ops-tile span {
       color: #94a3b8;
       font-size: 0.72rem;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     .pipeline-summary {
-      margin-top: 10px;
+      margin-top: 16px;
       border: 1px solid rgba(34, 211, 238, 0.24);
       border-radius: 18px;
       padding: 12px 14px;
@@ -541,7 +546,7 @@
 
     .experience-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 0.72fr 1.28fr;
       gap: 18px;
       align-items: start;
     }
@@ -603,12 +608,15 @@
       width: fit-content;
       height: fit-content;
       white-space: nowrap;
-      border-radius: 999px;
-      padding: 7px 10px;
-      color: var(--blue);
-      background: var(--blue-soft);
-      font-size: 0.82rem;
+      border: 1px solid rgba(16, 24, 40, 0.12);
+      border-radius: 12px;
+      padding: 7px 11px;
+      color: #475467;
+      background: rgba(255, 255, 255, 0.58);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.78rem;
       font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .job ul {
@@ -745,6 +753,44 @@
       font-size: 0.82rem;
     }
 
+    .contact-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      background: rgba(255, 250, 240, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+      line-height: 1;
+      letter-spacing: -0.065em;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contact-actions a {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .contact-actions a:hover {
+      color: var(--blue);
+    }
+
     footer {
       padding: 52px 0 68px;
       color: var(--muted);
@@ -837,11 +883,24 @@
         left: 32px;
       }
 
+      .ops-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-title b {
+        white-space: normal;
+      }
+
       .logos {
         grid-template-columns: 1fr;
       }
 
       .job-top {
+        flex-direction: column;
+      }
+
+      .contact-panel {
+        align-items: flex-start;
         flex-direction: column;
       }
 
@@ -871,7 +930,7 @@
         <div class="hero-copy">
           <div>
             <div class="kicker"><span class="pulse"></span> DevOps Engineer · Kubernetes · AWS · GitOps</div>
-            <h1>Infrastructure that can be explained under pressure.</h1>
+            <h1>Reliable delivery from pipeline to runtime.</h1>
             <p class="lead">
               I’m <strong>Idan Goren</strong>, a DevOps Engineer focused on Kubernetes platforms, AWS infrastructure,
               Terraform, CI/CD, GitOps, and production troubleshooting. I like systems that are reliable,
@@ -889,7 +948,6 @@
           <div class="pipeline-panel">
             <div class="terminal-bar">
               <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span>on-prem delivery system</span>
             </div>
 
             <div class="pipeline-title">
@@ -1001,10 +1059,10 @@
               <div class="date">Feb 2022 to May 2025</div>
             </div>
             <ul>
-              <li>Designed, implemented, and supported CI/CD pipelines for complex microservice projects.</li>
-              <li>Managed on-prem GitLab, Dockerized Nexus registry, PyPi and Docker repositories.</li>
-              <li>Deployed and managed Kubernetes with RKE on-prem and AWS EKS in the cloud.</li>
-              <li>Worked with AWS services including VPC, EC2, S3, Route 53, IAM, ECR, EKS, and CloudFormation.</li>
+              <li>Designed and supported CI/CD pipelines for complex microservice projects.</li>
+              <li>Managed on-prem GitLab and Dockerized Nexus for PyPI and Docker repositories.</li>
+              <li>Ran Kubernetes with on-prem RKE and AWS EKS.</li>
+              <li>Built AWS infrastructure with VPC, EC2, S3, Route 53, IAM, ECR, EKS, and CloudFormation.</li>
             </ul>
           </article>
 
@@ -1017,10 +1075,10 @@
               <div class="date">Mar 2019 to Jan 2022</div>
             </div>
             <ul>
-              <li>Created, maintained, and troubleshot automated CI/CD pipelines using Jenkins.</li>
-              <li>Configured, upgraded, and operated Jenkins server infrastructure.</li>
-              <li>Managed AWS infrastructure including EC2, S3, Route 53, CloudFormation, IAM, and QuickSight integration.</li>
-              <li>Implemented Python 3 Lambda functions for serverless domain redirection flows.</li>
+              <li>Built and troubleshot automated CI/CD pipelines using Jenkins.</li>
+              <li>Configured, upgraded, and operated Jenkins infrastructure.</li>
+              <li>Managed AWS infrastructure across EC2, S3, Route 53, CloudFormation, IAM, and QuickSight.</li>
+              <li>Built Python 3 Lambda functions for serverless domain redirection.</li>
             </ul>
           </article>
 
@@ -1123,9 +1181,23 @@
         </article>
       </div>
     </section>
+
+    <section id="contact" class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h2>Contact</h2>
+          <p>Best place to reach me is email. LinkedIn and GitHub are here too.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:idangoren17@gmail.com">idangoren17@gmail.com</a>
+          <a href="https://www.linkedin.com/in/idan-goren-b1940a43/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/goren17" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="contact">
+  <footer>
     <div class="wrap footer-inner">
       <p>© <span id="year"></span> Idan Goren</p>
       <p>
