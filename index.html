@@ -686,7 +686,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: auto;
+      padding-top: 18px;
     }
 
     .repo-link {
@@ -704,11 +705,24 @@
       transition: border-color 0.18s ease, background 0.18s ease;
     }
 
+    .repo-link.primary-link {
+      border-color: var(--blue);
+      color: #ffffff;
+      background: var(--blue);
+    }
+
     .repo-link:hover,
     .repo-link:focus {
       border-color: rgba(37, 99, 235, 0.5);
       background: var(--blue-soft);
       outline: none;
+    }
+
+    .repo-link.primary-link:hover,
+    .repo-link.primary-link:focus {
+      border-color: #1d4ed8;
+      color: #ffffff;
+      background: #1d4ed8;
     }
 
     .repo-meta {
@@ -1148,8 +1162,8 @@
             <p>Browser-based DevOps interview trainer with playlists, review drills, mock interviews, scoring, and progress tracking.</p>
           </div>
           <div class="repo-actions" aria-label="PrepOps links">
-            <a class="repo-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Live app</a>
-            <a class="repo-link" href="https://github.com/Goren17/PrepOps" target="_blank" rel="noreferrer">Source</a>
+            <a class="repo-link primary-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Open live ↗</a>
+            <a class="repo-link" href="https://github.com/Goren17/PrepOps" target="_blank" rel="noreferrer">Source code ↗</a>
           </div>
           <div class="repo-meta"><span>Live app</span><span>DevOps</span><span>JavaScript</span></div>
         </article>
@@ -1160,18 +1174,21 @@
             <p>Portfolio monorepo showing app delivery through GitHub Actions, ECR, Terraform/Terragrunt, Helm, Argo CD, EKS, and External Secrets.</p>
           </div>
           <div class="repo-actions" aria-label="GitOps Platform Demo links">
-            <a class="repo-link" href="https://github.com/Goren17/gitops-platform-demo" target="_blank" rel="noreferrer">Source</a>
+            <a class="repo-link" href="https://github.com/Goren17/gitops-platform-demo" target="_blank" rel="noreferrer">Source code ↗</a>
           </div>
           <div class="repo-meta"><span>GitOps</span><span>EKS</span><span>Terraform</span></div>
         </article>
 
-        <a class="repo-card" href="https://github.com/goren17" target="_blank" rel="noreferrer">
+        <article class="repo-card">
           <div>
-            <h3>Secrets Integration Lab</h3>
-            <p>External Secrets and AWS Secrets Manager flow using IRSA, service accounts, and Kubernetes workloads.</p>
+            <h3>Kubernetes Troubleshooting Lab</h3>
+            <p>Scenario-based lab with broken and fixed manifests for CrashLoopBackOff, ImagePullBackOff, probe failures, ingress bugs, External Secrets, and OOMKilled pods.</p>
           </div>
-          <div class="repo-meta"><span>IRSA</span><span>Secrets</span><span>AWS</span></div>
-        </a>
+          <div class="repo-actions" aria-label="Kubernetes Troubleshooting Lab links">
+            <a class="repo-link" href="https://github.com/Goren17/k8s-troubleshooting-lab" target="_blank" rel="noreferrer">Source code ↗</a>
+          </div>
+          <div class="repo-meta"><span>K8s</span><span>Troubleshooting</span><span>Runbooks</span></div>
+        </article>
 
         <a class="repo-card" href="https://github.com/goren17" target="_blank" rel="noreferrer">
           <div>
