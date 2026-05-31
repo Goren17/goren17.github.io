@@ -650,20 +650,21 @@
     }
 
     .repo-card {
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      min-height: 250px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 14px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 16px;
       background: #ffffff;
       padding: 22px;
       box-shadow: var(--shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
     .repo-card:hover {
       transform: translateY(-4px);
+      border-color: rgba(37, 99, 235, 0.3);
       box-shadow: 0 30px 80px rgba(16, 24, 40, 0.16);
     }
 
@@ -682,12 +683,74 @@
       color: var(--muted);
     }
 
+    .repo-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .repo-title {
+      display: flex;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .repo-path {
+      display: block;
+      color: var(--blue);
+      font-size: 0.95rem;
+      font-weight: 850;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    a.repo-path:hover,
+    a.repo-path:focus {
+      color: #1d4ed8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      outline: none;
+    }
+
+    .repo-owner {
+      color: #667085;
+      font-weight: 700;
+    }
+
+    .repo-badge {
+      height: fit-content;
+      border: 1px solid rgba(16, 24, 40, 0.14);
+      border-radius: 999px;
+      padding: 3px 8px;
+      color: #475467;
+      background: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .repo-badge.planned {
+      color: #7c2d12;
+      border-color: rgba(234, 88, 12, 0.22);
+      background: #fff7ed;
+    }
+
+    .repo-card h3 {
+      margin-top: 2px;
+    }
+
     .repo-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: auto;
-      padding-top: 18px;
+      margin-top: 0;
+    }
+
+    .repo-actions.inline-action {
+      margin-top: 16px;
     }
 
     .repo-link {
@@ -725,11 +788,61 @@
       background: #1d4ed8;
     }
 
+    .repo-language {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: #475467;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .repo-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      color: #667085;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .repo-facts span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .language-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .language-dot.js {
+      background: #f7df1e;
+      border: 1px solid rgba(16, 24, 40, 0.12);
+    }
+
+    .language-dot.terraform {
+      background: #7b42bc;
+    }
+
+    .language-dot.yaml {
+      background: #cb171e;
+    }
+
+    .language-dot.python {
+      background: #3776ab;
+    }
+
     .repo-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 20px;
+      margin-top: 14px;
     }
 
     .repo-meta span {
@@ -739,6 +852,12 @@
       background: #f2f4f7;
       font-size: 0.8rem;
       font-weight: 700;
+    }
+
+    .repo-footer {
+      display: grid;
+      gap: 14px;
+      align-self: end;
     }
 
     .method-grid {
@@ -1151,75 +1270,137 @@
 
     <section id="projects" class="wrap">
       <div class="section-head">
-        <h2>Repo index</h2>
-        <p>A project board inspired by the repo-index idea: short, scannable, and focused on what each repo proves.</p>
+        <h2>Selected repos</h2>
+        <p>Public DevOps repos across Kubernetes, GitOps, automation, and troubleshooting.</p>
       </div>
 
       <div class="repo-board">
         <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <a class="repo-path" href="https://github.com/Goren17/PrepOps" target="_blank" rel="noreferrer"><span class="repo-owner">Goren17 /</span> PrepOps</a>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
             <h3>PrepOps</h3>
             <p>Browser-based DevOps interview trainer with playlists, review drills, mock interviews, scoring, and progress tracking.</p>
+            <div class="repo-actions inline-action" aria-label="PrepOps live app link">
+              <a class="repo-link primary-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Open live ↗</a>
+            </div>
+            <div class="repo-language"><span class="language-dot js"></span>JavaScript</div>
+            <div class="repo-facts"><span>Updated May 2026</span><span>236 KB</span></div>
           </div>
-          <div class="repo-actions" aria-label="PrepOps links">
-            <a class="repo-link primary-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Open live ↗</a>
-            <a class="repo-link" href="https://github.com/Goren17/PrepOps" target="_blank" rel="noreferrer">Source code ↗</a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>Live app</span><span>DevOps</span><span>Interview prep</span></div>
           </div>
-          <div class="repo-meta"><span>Live app</span><span>DevOps</span><span>JavaScript</span></div>
         </article>
 
         <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <a class="repo-path" href="https://github.com/Goren17/gitops-platform-demo" target="_blank" rel="noreferrer"><span class="repo-owner">Goren17 /</span> gitops-platform-demo</a>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
             <h3>GitOps Platform Demo</h3>
             <p>Portfolio monorepo showing app delivery through GitHub Actions, ECR, Terraform/Terragrunt, Helm, Argo CD, EKS, and External Secrets.</p>
+            <div class="repo-language"><span class="language-dot terraform"></span>Terraform / HCL</div>
+            <div class="repo-facts"><span>Updated May 2026</span><span>37 KB</span></div>
           </div>
-          <div class="repo-actions" aria-label="GitOps Platform Demo links">
-            <a class="repo-link" href="https://github.com/Goren17/gitops-platform-demo" target="_blank" rel="noreferrer">Source code ↗</a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>GitOps</span><span>EKS</span><span>Terraform</span></div>
           </div>
-          <div class="repo-meta"><span>GitOps</span><span>EKS</span><span>Terraform</span></div>
         </article>
 
         <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <a class="repo-path" href="https://github.com/Goren17/k8s-troubleshooting-lab" target="_blank" rel="noreferrer"><span class="repo-owner">Goren17 /</span> k8s-troubleshooting-lab</a>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
             <h3>Kubernetes Troubleshooting Lab</h3>
             <p>Scenario-based lab with broken and fixed manifests for CrashLoopBackOff, ImagePullBackOff, probe failures, ingress bugs, External Secrets, and OOMKilled pods.</p>
+            <div class="repo-language"><span class="language-dot yaml"></span>YAML / Shell</div>
+            <div class="repo-facts"><span>Updated May 2026</span><span>7 scenarios</span></div>
           </div>
-          <div class="repo-actions" aria-label="Kubernetes Troubleshooting Lab links">
-            <a class="repo-link" href="https://github.com/Goren17/k8s-troubleshooting-lab" target="_blank" rel="noreferrer">Source code ↗</a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>K8s</span><span>Troubleshooting</span><span>Runbooks</span></div>
           </div>
-          <div class="repo-meta"><span>K8s</span><span>Troubleshooting</span><span>Runbooks</span></div>
         </article>
 
-        <a class="repo-card" href="https://github.com/goren17" target="_blank" rel="noreferrer">
+        <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <span class="repo-path"><span class="repo-owner">Goren17 /</span> cicd-patterns</span>
+              </div>
+              <span class="repo-badge planned">Planned</span>
+            </div>
             <h3>CI/CD Patterns</h3>
             <p>Pipeline examples covering build, test, scan, package, deploy, promotion, and rollback decisions.</p>
+            <div class="repo-language"><span class="language-dot yaml"></span>GitHub Actions</div>
+            <div class="repo-facts"><span>Planned repo</span></div>
           </div>
-          <div class="repo-meta"><span>CI/CD</span><span>DevSecOps</span><span>Rollback</span></div>
-        </a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>CI/CD</span><span>DevSecOps</span><span>Rollback</span></div>
+            <div class="repo-actions" aria-label="GitHub profile link">
+              <a class="repo-link" href="https://github.com/goren17" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+            </div>
+          </div>
+        </article>
 
-        <a class="repo-card" href="https://github.com/goren17" target="_blank" rel="noreferrer">
+        <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <span class="repo-path"><span class="repo-owner">Goren17 /</span> observability-stack</span>
+              </div>
+              <span class="repo-badge planned">Planned</span>
+            </div>
             <h3>Observability Stack</h3>
             <p>Prometheus, Grafana, and logging experiments for understanding system behavior and deployment issues.</p>
+            <div class="repo-language"><span class="language-dot yaml"></span>YAML / Dashboards</div>
+            <div class="repo-facts"><span>Planned repo</span></div>
           </div>
-          <div class="repo-meta"><span>Grafana</span><span>Prometheus</span><span>Logs</span></div>
-        </a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>Grafana</span><span>Prometheus</span><span>Logs</span></div>
+            <div class="repo-actions" aria-label="GitHub profile link">
+              <a class="repo-link" href="https://github.com/goren17" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+            </div>
+          </div>
+        </article>
 
-        <a class="repo-card" href="https://github.com/goren17" target="_blank" rel="noreferrer">
+        <article class="repo-card">
           <div>
+            <div class="repo-heading">
+              <div class="repo-title">
+                <span class="repo-path"><span class="repo-owner">Goren17 /</span> automation-scripts</span>
+              </div>
+              <span class="repo-badge planned">Planned</span>
+            </div>
             <h3>Automation Scripts</h3>
             <p>Python and Bash utilities for infra checks, maintenance tasks, and practical DevOps workflows.</p>
+            <div class="repo-language"><span class="language-dot python"></span>Python / Bash</div>
+            <div class="repo-facts"><span>Planned repo</span></div>
           </div>
-          <div class="repo-meta"><span>Python</span><span>Bash</span><span>Ops</span></div>
-        </a>
+          <div class="repo-footer">
+            <div class="repo-meta"><span>Python</span><span>Bash</span><span>Ops</span></div>
+            <div class="repo-actions" aria-label="GitHub profile link">
+              <a class="repo-link" href="https://github.com/goren17" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="wrap">
       <div class="section-head">
         <h2>Operating style</h2>
-        <p>Less platform theater, more systems that can be changed safely and debugged without a séance.</p>
+        <p>Less platform theater, more systems that are safe to change and easy to debug.</p>
       </div>
 
       <div class="method-grid">
