@@ -838,6 +838,15 @@
       font-weight: 700;
     }
 
+    .repo-meta .repo-meta-link {
+      min-height: unset;
+      margin-left: auto;
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 0.8rem;
+      line-height: 1.2;
+    }
+
     .repo-footer {
       display: grid;
       gap: 10px;
@@ -1269,13 +1278,13 @@
             </div>
             <h3>PrepOps</h3>
             <p>Browser-based DevOps interview trainer with playlists, review drills, mock interviews, scoring, and progress tracking.</p>
-            <div class="repo-actions inline-action" aria-label="PrepOps live app link">
-              <a class="repo-link primary-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Open live ↗</a>
-            </div>
           </div>
           <div class="repo-footer">
             <div class="repo-language"><span class="language-dot js"></span>JavaScript</div>
-            <div class="repo-meta"><span>Live app</span><span>DevOps</span><span>Interview prep</span></div>
+            <div class="repo-meta" aria-label="PrepOps metadata and live app link">
+              <span>Live app</span><span>DevOps</span><span>Interview prep</span>
+              <a class="repo-link primary-link repo-meta-link" href="https://goren17.github.io/PrepOps/" target="_blank" rel="noreferrer">Live ↗</a>
+            </div>
           </div>
         </article>
 
@@ -1317,16 +1326,16 @@
           <div>
             <div class="repo-heading">
               <div class="repo-title">
-                <span class="repo-path"><span class="repo-owner">Goren17 /</span> cicd-patterns</span>
+                <a class="repo-path" href="https://github.com/Goren17/pipeline-clinic" target="_blank" rel="noreferrer"><span class="repo-owner">Goren17 /</span> pipeline-clinic</a>
               </div>
-              <span class="repo-badge planned">Planned</span>
+              <span class="repo-badge">Public</span>
             </div>
-            <h3>CI/CD Patterns</h3>
-            <p>Pipeline examples covering build, test, scan, package, deploy, promotion, and rollback decisions.</p>
+            <h3>Pipeline Clinic</h3>
+            <p>Production-style CI/CD case studies covering GitLab CI, Jenkins, Docker delivery, Python packages, staged releases, rollback strategy, and failure triage.</p>
           </div>
           <div class="repo-footer">
-            <div class="repo-language"><span class="language-dot yaml"></span>GitHub Actions</div>
-            <div class="repo-meta"><span>CI/CD</span><span>DevSecOps</span><span>Rollback</span></div>
+            <div class="repo-language"><span class="language-dot yaml"></span>GitLab CI / Jenkins</div>
+            <div class="repo-meta"><span>CI/CD</span><span>Rollback</span><span>Failure triage</span></div>
           </div>
         </article>
 
